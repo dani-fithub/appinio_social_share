@@ -95,6 +95,10 @@ class Android {
     return AppinioSocialSharePlatform.instance.shareToTiktokStatus(filePaths);
   }
 
+  Future<String> shareToTiktokStatusNew(List<String> filePaths) {
+    return AppinioSocialSharePlatform.instance.shareToTiktokStatus(filePaths);
+  }
+
   Future<String> shareToSystem(String title, String message, String? filePath) {
     return AppinioSocialSharePlatform.instance
         .shareToSystemAndroid(title, message, filePath);

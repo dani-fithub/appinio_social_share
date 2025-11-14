@@ -58,6 +58,10 @@ abstract class AppinioSocialSharePlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
+  Future<String> shareToTiktokStatusNew(List<String> filePaths) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
   ///This function only works for iOS
   Future<String> shareToTiktokPost(
       String filePath, String redirectUrl, TiktokFileType tiktokFileType) {

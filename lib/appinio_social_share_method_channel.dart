@@ -24,6 +24,7 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   final String smsAndroid = "sms_android";
   final String smsAndroidMultiFiles = "sms_android_multifiles";
   final String tiktokStatus = "tiktok_status";
+  final String tiktokStatusNew = "tiktok_status_new";
   final String tiktokPost = "tiktok_post";
   final String systemShare = "system_share";
   final String systemShareAndroid = "system_share_android";
@@ -50,6 +51,14 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
     if (Platform.isIOS) return "Not implemented for iOS";
     return ((await methodChannel.invokeMethod<String>(
             tiktokStatus, {"imagePaths": filePaths, "message": ""})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToTiktokStatusNew(List<String> filePaths) async {
+    if (Platform.isIOS) return "Not implemented for iOS";
+    return ((await methodChannel.invokeMethod<String>(
+        tiktokStatusNew, {"imagePaths": filePaths, "message": ""})) ??
         "");
   }
 

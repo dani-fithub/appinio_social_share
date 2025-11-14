@@ -52,6 +52,7 @@ public class SocialShareUtil {
     private final String WHATSAPP_PACKAGE = "com.whatsapp";
     private final String TELEGRAM_PACKAGE = "org.telegram.messenger";
     private final String TIKTOK_PACKAGE = "com.zhiliaoapp.musically";
+    private final String TIKTOK_PACKAGE_NEW = "com.ss.android.ugc.trill";
     private final String FACEBOOK_STORY_PACKAGE = "com.facebook.stories.ADD_TO_STORY";
     private final String FACEBOOK_PACKAGE = "com.facebook.katana";
     private final String FACEBOOK_LITE_PACKAGE = "com.facebook.lite";
@@ -86,6 +87,10 @@ public class SocialShareUtil {
 
     public String shareToTikTok(ArrayList<String> imagePaths, Context activity) {
         return shareFilesToPackage(imagePaths, activity, TIKTOK_PACKAGE);
+    }
+
+    public String shareToTikTokNew(ArrayList<String> imagePaths, Context activity) {
+        return shareFilesToPackage(imagePaths, activity, TIKTOK_PACKAGE_NEW);
     }
 
     public String shareToTwitter(String imagePath, Context activity, String text) {
@@ -403,6 +408,7 @@ public class SocialShareUtil {
         appsMap.put("instagram_stories", INSTAGRAM_PACKAGE);
         appsMap.put("twitter", TWITTER_PACKAGE);
         appsMap.put("tiktok", TIKTOK_PACKAGE);
+        appsMap.put("tiktok_new", TIKTOK_PACKAGE_NEW);
 
         Map<String, Boolean> apps = new HashMap<String, Boolean>();
 

@@ -118,4 +118,14 @@ class Android {
     return AppinioSocialSharePlatform.instance
         .shareToSMSAndroidMultifiles(filePaths);
   }
+
+  Future<String> shareToThread(String message, String? filePath) {
+    return AppinioSocialSharePlatform.instance
+        .shareToThreadAndroid(message, filePath);
+  }
+
+  Future<String> shareToLine(String message, String? filePath) {
+    return AppinioSocialSharePlatform.instance
+        .shareToLineAndroid(message, filePath);
+  }
 }

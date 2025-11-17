@@ -35,6 +35,10 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   final String telegramAndroidMultiFiles = "telegram_android_multifiles";
   final String installedApps = "installed_apps";
   final String whatsappImgIos = "whatsapp_img_ios";
+  final String threadAndroid = "thread_android";
+  final String threadIos = "thread_android";
+  final String lineAndroid = "line_android";
+  final String lineIos = "line_ios";
 
   /// The method channel used to interact with the native platform.
   @visibleForTesting
@@ -294,6 +298,34 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   Future<String> shareToFacebook(String hashtag, List<String> filePaths) async {
     return ((await methodChannel.invokeMethod<String>(
             facebook, {"imagePaths": filePaths, "message": hashtag})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToThreadIos(String message, String? filePath) async {
+    return ((await methodChannel.invokeMethod<String>(
+            threadIos, {"imagePath": filePath, "message": message})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToThreadAndroid(String message, String? filePath) async {
+    return ((await methodChannel.invokeMethod<String>(
+            threadAndroid, {"imagePath": filePath, "message": message})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToLineIos(String message, String? filePath) async {
+    return ((await methodChannel.invokeMethod<String>(
+            lineIos, {"imagePath": filePath, "message": message})) ??
+        "");
+  }
+
+  @override
+  Future<String> shareToLineAndroid(String message, String? filePath) async {
+    return ((await methodChannel.invokeMethod<String>(
+            lineAndroid, {"imagePath": filePath, "message": message})) ??
         "");
   }
 }

@@ -164,6 +164,22 @@ abstract class AppinioSocialSharePlatform extends PlatformInterface {
       String title, List<String> filePaths) async {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<String> shareToThreadAndroid(String message, String? filePath) async {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String> shareToThreadIos(String message, String? filePath) async {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String> shareToLineAndroid(String message, String? filePath) async {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  Future<String> shareToLineIos(String message, String? filePath) async {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }
 
 enum TiktokFileType {

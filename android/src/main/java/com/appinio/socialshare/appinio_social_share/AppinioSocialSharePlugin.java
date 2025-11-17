@@ -45,6 +45,8 @@ public class AppinioSocialSharePlugin implements FlutterPlugin, MethodCallHandle
     private final String COPY_TO_CLIPBOARD = "copy_to_clipboard";
     private final String TELEGRAM_ANDROID = "telegram_android";
     private final String TELEGRAM_ANDROID_MULTIFILES = "telegram_android_multifiles";
+    private final String THREAD_ANDROID = "thread_android";
+    private final String LINE_ANDROID = "line_android";
 
 
     private SocialShareUtil socialShareUtil;
@@ -134,6 +136,10 @@ public class AppinioSocialSharePlugin implements FlutterPlugin, MethodCallHandle
                 return socialShareUtil.shareToSMS(message, activeContext, imagePath);
             case SMS_ANDROID_MULTIFILES:
                 return socialShareUtil.shareToSMSFiles(activeContext, imagePaths);
+            case LINE_ANDROID:
+                return socialShareUtil.shareToLine(imagePath, activeContext, message);
+            case THREAD_ANDROID:
+                return socialShareUtil.shareToThread(imagePath, activeContext, message);
             default:
                 return null;
         }

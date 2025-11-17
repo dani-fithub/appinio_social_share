@@ -59,6 +59,8 @@ public class SocialShareUtil {
     private final String FACEBOOK_MESSENGER_PACKAGE = "com.facebook.orca";
     private final String FACEBOOK_MESSENGER_LITE_PACKAGE = "com.facebook.mlite";
     private final String SMS_DEFAULT_APPLICATION = "sms_default_application";
+    private final String THREAD_PACKAGE = "com.instagram.barcelona";
+    private final String LINE_PACKAGE = "jp.naver.line.android";
 
 
     private static CallbackManager callbackManager;
@@ -409,6 +411,8 @@ public class SocialShareUtil {
         appsMap.put("twitter", TWITTER_PACKAGE);
         appsMap.put("tiktok", TIKTOK_PACKAGE);
         appsMap.put("tiktok_new", TIKTOK_PACKAGE_NEW);
+        appsMap.put("thread", THREAD_PACKAGE);
+        appsMap.put("line", LINE_PACKAGE);
 
         Map<String, Boolean> apps = new HashMap<String, Boolean>();
 
@@ -463,6 +467,14 @@ public class SocialShareUtil {
         }
 
         return appId;
+    }
+
+    public String shareToThread(String imagePath, Context activity, String text) {
+        return shareFileAndTextToPackage(imagePath, text, activity, THREAD_PACKAGE);
+    }
+
+    public String shareToLine(String imagePath, Context activity, String text) {
+        return shareFileAndTextToPackage(imagePath, text, activity, LINE_PACKAGE);
     }
 
 }

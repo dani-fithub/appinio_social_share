@@ -221,7 +221,7 @@ public class SocialShareUtil {
                     Intent cameraIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("instagram://story-camera"));
                     cameraIntent.setPackage("com.instagram.android");
                     cameraIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(cameraIntent);
+                    activity.startActivity(cameraIntent);
                     return "success";
                 } catch (Exception e) {
                     Log.e("InstagramStory", "Instagram not installed");

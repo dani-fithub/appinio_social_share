@@ -328,4 +328,11 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
             lineAndroid, {"imagePath": filePath, "message": message})) ??
         "");
   }
+
+  @override
+  Future<String> shareToSocialMedia(String urlSchema, String image) async {
+    return ((await methodChannel.invokeMethod<String>(
+        urlSchema, {"imagePath": image, "urlSchema": urlSchema})) ??
+        "");
+  }
 }

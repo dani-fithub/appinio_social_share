@@ -215,6 +215,19 @@ public class SocialShareUtil {
     public String shareToInstagramStory(String appId, String stickerImage, String backgroundImage, String backgroundTopColor, String backgroundBottomColor, String attributionURL, Context activity) {
 
         try {
+            // 🔥 If both images are empty → open Instagram Story Camera
+            if (stickerImage == null && backgroundImage == null) {
+                try {
+                    Intent cameraIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("instagram://story-camera"));
+                    cameraIntent.setPackage("com.instagram.android");
+                    cameraIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(cameraIntent);
+                    return "success";
+                } catch (Exception e) {
+                    Log.e("InstagramStory", "Instagram not installed");
+                    return "Instagram not installed";
+                }
+            }
 
             Intent shareIntent = new Intent(INSTAGRAM_STORY_PACKAGE);
             shareIntent.setType("image/*");
@@ -475,6 +488,21 @@ public class SocialShareUtil {
 
     public String shareToLine(String imagePath, Context activity, String text) {
         return shareFileAndTextToPackage(imagePath, text, activity, LINE_PACKAGE);
+    }
+
+    public static void openInstagramStoryCamera(Context context) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("instagram://story-camera"));
+            intent.setPackage("com.instagram.android");
+            context.startActivity(intent);
+        } catch (Exception e) {
+            // Instagram not installed → open Play Store
+            Intent playStore = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=com.instagram.android")
+            );
+            context.startActivity(playStore);
+        }
     }
 
 }

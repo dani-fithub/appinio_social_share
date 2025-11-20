@@ -330,9 +330,9 @@ class MethodChannelAppinioSocialShare extends AppinioSocialSharePlatform {
   }
 
   @override
-  Future<String> shareToSocialMedia(String urlSchema, String image) async {
-    return ((await const MethodChannel('appinio_social_share_tiktok').invokeMethod<String>(
-        urlSchema, {"imagePath": image, "urlSchema": urlSchema})) ??
+  Future<String> shareToSocialMedia(String urlSchema, String image, String content) async {
+    return ((await const MethodChannel('appinio_social_share_media').invokeMethod<String>(
+        urlSchema, {"imagePath": image, "urlSchema": urlSchema, "content": content})) ??
         "");
   }
 }

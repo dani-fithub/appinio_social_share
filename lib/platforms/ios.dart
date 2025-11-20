@@ -94,7 +94,7 @@ class IOS {
         .shareToSMS(message, filePaths: []);
   }
 
-  Future<String> shareToSocialMedia(String urlSchema, String image) {
-    return AppinioSocialSharePlatform.instance.shareToSocialMedia(urlSchema, image);
+  Future<String> shareToSocialMedia(String urlSchema, String image, String content) {
+    return AppinioSocialSharePlatform.instance.shareToSocialMedia(urlSchema, image, content);
   }
 }
